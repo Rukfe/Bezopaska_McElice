@@ -4,6 +4,7 @@ import './App.css';
 import EncryptionService from './EncryptionService';
 
 function App() {
+  const [fileInfo, setFileInfo] = useState(null);
   const [inputText, setInputText] = useState('');
   const [encrypt , setEncryptedText] = useState('');
   const [key_word, setKeyText] = useState('')
@@ -70,6 +71,43 @@ function App() {
     } catch (error) {
       setEncryptedText('Ошибка: ' + (error.message || 'что-то пошло не так'));
     }
+  };
+    const handleDragOver = (e) => {
+      e.preventDefault(); // Необходимо для того, чтобы разрешить сброс
+      setPlaceholder('вставьте файл сюда'); // Меняем placeholder у textarea
+    };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    setPlaceholder('Введите текст'); // Возвращаем оригинальный placeholder
+
+    if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+      const file = e.dataTransfer.files[0];
+      // Добавляем информацию о файле в состояние
+      setFileInfo({
+        name: file.name,
+        size: file.size,
+        type: file.type
+      });
+
+      const reader = new FileReader();
+      reader.onload = event => {
+        setInputText(event.target.result); // Содержимое файла
+      };
+      reader.readAsText(file);
+
+      e.dataTransfer.clearData();
+    }
+  };
+
+  const handleDragLeave = (e) => {
+    e.preventDefault();
+    // Восстанавливаем состояния
+    setPlaceholder('Введите текст');
+    setFileInfo(null);
+  };
+  const handleDragEnter = (e) => {
+    setPlaceholder('вставьте файл сюда');
   };
 
   const handleDecrypt = async () => {
@@ -152,13 +190,22 @@ const toggleKeyVisibility = async () => {
       <div id="authors">Разработано: </div>
       <div id='madeBy'>ShUE Team</div>
       </div>
-      <div id='inputTextBlock'>
-      <textarea ref={inputRef} type="text" id="inputText" placeholder={placeholder} value={inputText}
-        onChange={(e) => setInputText(e.target.value)}
-        className={inputError ? 'input-error' : ''}
-      />
-      <button id="encryptButton" onClick={handleEncrypt}>Зашифровать</button>
-      <button id="decryptButton" onClick={handleDecrypt}>Расшифровать</button>
+      <div id='inputTextBlock' onDragOver={handleDragOver} onDrop={handleDrop} onDragEnter={handleDragOver} onDragLeave={handleDragLeave}>
+        {fileInfo && (
+            <div className="file-info">
+              <strong>Файл:</strong> {fileInfo.name} ({(fileInfo.size / 1024).toFixed(1)} KB)
+            </div>
+        )}
+        <textarea ref={inputRef}
+                  type="text"
+                  id="inputText"
+                  placeholder={placeholder}
+                  value={inputText}
+                  onChange={(e) => setInputText(e.target.value)}
+                  className={inputError ? 'input-error' : ''}
+        />
+        <button id="encryptButton" onClick={handleEncrypt}>Зашифровать</button>
+        <button id="decryptButton" onClick={handleDecrypt}>Расшифровать</button>
       </div>
 
       <div id="encryptedTextContainer">
