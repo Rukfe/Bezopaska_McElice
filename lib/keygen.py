@@ -7,11 +7,11 @@ def keygen():
     n = 2**kgen - 1
 
     # Генерация ключей
-    (G, paritycheck) = getGoppa(kgen, k)
+    (G, H) = getGoppa(kgen, k)
     S = genInvertibleMatrix(k)
     P = genPermuteMatrix(n)
     Gcarat = np.matmul(np.matmul(S, G), P) % 2 # Вычисление открытого ключа
-    return (Gcarat, S, P, paritycheck)
+    return (Gcarat, S, P, H)
 
 def getGoppa(kgen, k):
     # Создание идентичности
@@ -36,9 +36,9 @@ def getGoppa(kgen, k):
     left = left.T
 
     # Построение матрицы проверки четности и генератора
-    paritycheck = np.block([left, identity])
-    generator = np.block([identityk, np.transpose(left)])
-    return (generator, paritycheck)
+    H = np.block([left, identity])
+    G = np.block([identityk, np.transpose(left)])
+    return (G, H)
 
 def genInvertibleMatrix(k):
     # Генерация случайной обратимой матрицы
