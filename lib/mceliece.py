@@ -1,8 +1,8 @@
 import numpy as np
-import encoder
-import decoder
-import keygen
-import extra
+from lib import encoder
+from lib import decoder
+from lib import keygen
+from lib import extra
 
 def generate_keys():
     # Генерация открытого и закрытого ключей
