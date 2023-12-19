@@ -1,7 +1,8 @@
 from flask import Flask, request, session, jsonify
 import lib.mceliece as mceliece
+import numpy as np
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="mc_elice/build", static_url_path='')
 app.secret_key = 'sh_u_e_new'  # Новый секретный ключ
 
 

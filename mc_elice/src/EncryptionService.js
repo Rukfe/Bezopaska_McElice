@@ -1,21 +1,29 @@
 // EncryptionService.js
+
 const EncryptionService = {
   async encrypt(message) {
     const response = await fetch('/encrypt', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json; charset=utf-8'
       },
       body: JSON.stringify({ message }),
     });
-    return response.json();
-  },
+    const data = await response.json();
+  if (!response.ok) {
+    throw new Error(`Ошибка сервера: ${response.status}. Сообщение: ${data.error}`);
+  }
+  if (typeof data.encrypted_message === 'string') {
+    data.encrypted_message = data.encrypted_message.replace(/,/g, '.');
+  }
+  return data;
+},
 
   async decrypt(message) {
     const response = await fetch('/decrypt', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json; charset=utf-8'
       },
       body: JSON.stringify({ message }),
     });
@@ -37,14 +45,23 @@ const EncryptionService = {
     return response.json();
   },
 
-  async changeKey(newKey) {
-    // Отправка запроса на изменение ключа
+  async generateKeys() {
+    const response = await fetch('/generate_keys', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    return response.json();
+  },
+
+
+  async changeKey() {
     const response = await fetch('/change_key', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ new_key: newKey }),
     });
     return response.json();
   },

@@ -1,5 +1,5 @@
 // App.js
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './App.css';
 import EncryptionService from './EncryptionService';
 
@@ -22,6 +22,12 @@ function App() {
   const [inputEncryptError, setEncryptInputError] = useState(false);
   const [outputText, setOutputText] = useState('');
   const [keyAnimation, setKeyAnimation] = useState('');
+  const [keys, setKeys] = useState({
+    Ghat: [],
+    S: [],
+    P: [],
+    H: []
+  });
 
   const focusTextInput = () => {
     if (inputRef.current) {
@@ -46,6 +52,19 @@ function App() {
       if (ref && ref.current) {
         ref.current.select();
         document.execCommand('copy');
+      }
+    };
+
+    useEffect(() => {
+      fetchKeys();
+    }, []);
+  
+    const fetchKeys = async () => {
+      try {
+        const newKeys = await EncryptionService.getKey();
+        setKeys(newKeys);
+      } catch (error) {
+        console.error('Ошибка при получении ключей: ', error);
       }
     };
 
@@ -164,7 +183,8 @@ const toggleKeyVisibility = async () => {
         setKeyText(newKey);
         setNewKey('');
         setIsKeyVisible(true);
-        setKeyPlaceholder('Ключ изменен успешно!');
+        setKeyPlaceholder('Ключи шифрования успешно изменены');
+        fetchKeys();
         setTimeout(() => {
           setKeyPlaceholder('Введите новый ключ')}, 1500);
       }
@@ -180,6 +200,19 @@ const toggleKeyVisibility = async () => {
       setEncryptError('Пустое поле!');
       setTimeout(() => setEncryptInputError(false), 500);
       setTimeout(() => setEncryptError('Зашифрованный / Расшифрованный текст'), 1500 )
+    }
+  };
+
+  const handleGenerateKeys = async () => {
+    try {
+      const response = await EncryptionService.generateKeys();
+      if (response.message) {
+        // Теперь нужно получить ключи, так как они генерируются и хранятся в сессии на сервере
+        const keysResponse = await EncryptionService.getKey();
+        setKeys(keysResponse);
+      }
+    } catch (error) {
+      console.error('Ошибка при генерации ключей:', error);
     }
   };
 
@@ -218,6 +251,15 @@ const toggleKeyVisibility = async () => {
           id ="encryptKeyButton" title='Копировать'>Копировать</button>
       </div>
 
+      <div>
+      <button onClick={handleGenerateKeys}>Генерировать ключи</button>
+      <div id="keys">
+        <p>Открытый ключ (Ghat): {keys.Ghat.join(', ')}</p>
+        <p>Матрица перестановок (P): {keys.P.join(', ')}</p>
+        <p>Подстановка (S): {keys.S.join(', ')}</p>
+        <p>Проверочная матрица (H): {keys.H.join(', ')}</p>
+      </div>
+    </div>
         {isKeyVisible && (
         <div id="keyContainer" className={keyAnimation}>
           <textarea type="text" id='keyText' placeholder="Ключ неизвестен" ref={keyWord} value={key_word} readOnly/>
