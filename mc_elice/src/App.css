@@ -9,63 +9,186 @@ body, html {
   background-color: #000000;
 }
 
-#app {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
+.textWork{
+  position: fixed;
+  margin-left: 650px;
+  padding-top: 15%;
 }
 
-#jobCryptText{
-  color: rgb(255, 255, 255);
+#inputText{
+  margin-top: 80px;
+  margin-bottom: 10px;
+  margin-left: -32px;
+  max-height: 120px;
+  min-height: 120px;
+  max-width: 280px;
+  min-width: 280px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 280px;
+  height: 150px;
+}
+
+#selectFileTxt{
   position: relative;
-  top: -0px;
-  background-color: #949494;
-  outline: 2px solid #ffffff;
-  width: 250px;
-  cursor:text;
-  border-radius: 2px;
-
-}
-
-
-#RC5{
-  color: #ffffff;
-  font-size: 40px;
-  font-weight: 1000;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  margin-top: 40px;
-}
-#authors{
-  color: #ffffff;
+  top: -161px;
+  left: -953px;
+  border: none;
+  width: 299px;
+  border-radius: 4px;
+  background-color: #c5c5f7;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
   position: relative;
-  right: -60px;
-  margin-top: 10px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-
-}
-#madeBy{
-  color: #ffffff;
-  font-style: italic;
   font-weight: 500;
-  position: relative;
-  right: -165px;
-  top: -31.5px;
-  margin-top: 10px;
+  font-size: medium;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-#inputTextBlock{
-  margin-left: -130px;
+
+#textEncryptBtn{
+  position: relative;
+  top: 20px;
+  left: -298px;
+  border: none;
+  border-radius: 4px;
+  background-color: #c5c5f7;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  position: relative;
+  font-weight: 500;
+  font-size: medium;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+#textEncryptBtn:hover{
+  background-color: #9f9ff0;
+  color: #000000;
 }
 
-#encryptedTextContainer{
-  margin-left: 400px;
-  margin-top: -242px;
+#textDecryptBtn{
+  position: relative;
+  top: 20px;
+  left: -238px;
+  border: none;
+  border-radius: 4px;
+  background-color: #c5c5f7;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  position: relative;
+  font-weight: 500;
+  font-size: medium;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-#inputText {
+#textDecryptBtn:hover{
+  background-color: #9f9ff0;
+  color: #000000;
+}
+
+#outputText{
+  margin-top: 80px;
+  margin-bottom: 10px;
+  margin-left: -120px;
+  max-height: 150px;
+  min-height: 150px;
+  max-width: 280px;
+  min-width: 280px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 280px;
+  height: 150px;
+}
+
+#decryptCopyBtn{
+  position: relative;
+  top: 20px;
+  left: -298px;
+  border: none;
+  border-radius: 4px;
+  background-color: #c5c5f7;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  position: relative;
+  font-weight: 500;
+  font-size: medium;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#decryptCopyBtn:hover{
+  background-color: #9f9ff0;
+  color: #000000;
+}
+
+#keysBtn{
+  position: relative;
+  top: 20px;
+  left: -238px;
+  border: none;
+  border-radius: 4px;
+  background-color: #c5c5f7;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  position: relative;
+  font-weight: 500;
+  font-size: medium;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#keysBtn:hover{
+  background-color: #9f9ff0;
+  color: #000000;
+}
+
+#changeBlockImg{
+  position: relative;
+  top: 50px;
+  left: -32px;
+  width: 714px;
+  border: none;
+  border-radius: 4px;
+  background-color: #c5c5f7;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  position: relative;
+  font-weight: 500;
+  font-size: medium;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#changeBlockImg:hover{
+  background-color: #9f9ff0;
+  color: #000000;
+}
+
+.imgWork{
+margin-left: 545px;
+padding-top: 570px;
+}
+
+#inputImg{
+  position: relative;
+  top: -285px;
+  left: -306px;
+  margin-top: 80px;
+  margin-bottom: 10px;
+  margin-left: -32px;
+  max-height: 120px;
+  min-height: 120px;
+  max-width: 280px;
+  min-width: 280px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 280px;
+  height: 150px; 
+}
+
+#outputImg{
+  position: relative;
+  top: -285px;
+  left: -245px;
   margin-top: 80px;
   margin-bottom: 10px;
   margin-left: -32px;
@@ -77,283 +200,156 @@ body, html {
   border: 1px solid #ccc;
   border-radius: 4px;
   width: 280px;
-  height: 150px;
+  height: 150px; 
 }
 
-#encryptedText{
-  margin-top: -10px;
-  margin-bottom: 50px;
-  margin-right: -100px;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 280px;
-  height: 150px;
-  max-height: 150px;
-  min-height: 150px;
-  max-width: 280px;
-  min-width: 280px;
-}
-
-#decryptedText{
-  margin-top: 250px;
-  margin-bottom: 10px;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 200px;
-}
-
-
-
-.keyButtonT:hover{
-  background-color: #9f9ff0;
-  background-image: url("key.svg");
-  outline: 2px solid #9f9ff0;
-  outline-offset: -2px;
-  border-radius: 4px;
-}
-
-.keyButtonF{
+#imgEncryptBtn{
   position: relative;
-  top: -113px;
-  right: -114px;
-  background-image: url("keyOpen.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 31px;
-  color: #ffffff;
-  outline: 2px solid #ffffff;
-  outline-offset: -2px;
-  border-radius: 4px;
-  cursor: pointer;
-  background-color: #000000;
-  width: 35px;
-  height: 33px;
-}
-
-.keyButtonF:hover{
-  background-color: #ffffff;
-  background-image: url("key.svg");
-  outline: 2px solid #ffffff;
-  outline-offset: -2px;
-}
-
-#encryptButton {
-  padding: 10px 5px;
+  top: -262px;
+  left: -223px;
   border: none;
   border-radius: 4px;
   background-color: #c5c5f7;
   color: rgb(0, 0, 0);
   cursor: pointer;
   position: relative;
-  left: -280px;
-  bottom: -25px;
   font-weight: 500;
   font-size: medium;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-#encryptButton:hover {
+#imgEncryptBtn:hover{
   background-color: #9f9ff0;
   color: #000000;
-  
 }
 
-#encryptedText{
-  margin-top: 50px;
-  width: 200px;
-  cursor: not-allowed;
-}
-
-#decryptButton {
-  padding: 10px 5px;
+#imgDecryptBtn{
+  position: relative;
+  top: -262px;
+  left: -544px;
   border: none;
   border-radius: 4px;
   background-color: #c5c5f7;
   color: rgb(0, 0, 0);
   cursor: pointer;
   position: relative;
-  right: 250px;
-  bottom: -25px;
   font-weight: 500;
   font-size: medium;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-#decryptButton:hover {
+#imgDecryptBtn:hover{
   background-color: #9f9ff0;
   color: #000000;
 }
 
 
-#decryptedText{
-  margin-top: 20px;
-  width: 200px;
-  cursor: not-allowed;
-  resize: both; /* Позволяет изменять размер как по вертикали, так и по горизонтали */
-  overflow: auto; /* Убеждаемся, что полосы прокрутки появляются при необходимости */
-}
-
-#toggleKeyButton{
-  padding: 10px 5px;
+#keysImgBtn{
+  position: relative;
+  top: -262px;
+  left: -504px;
   border: none;
   border-radius: 4px;
   background-color: #c5c5f7;
   color: rgb(0, 0, 0);
   cursor: pointer;
   position: relative;
-  left: -180px;
-  top: -15px;
   font-weight: 500;
   font-size: medium;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-#toggleKeyButton:hover {
+#keysImgBtn:hover{
   background-color: #9f9ff0;
   color: #000000;
 }
 
-#encryptKeyButton{
-  padding: 10px 5px;
+#encryptCopyBtn{
+  position: relative;
+  top: -262px;
+  left: -408px;
   border: none;
   border-radius: 4px;
   background-color: #c5c5f7;
   color: rgb(0, 0, 0);
   cursor: pointer;
   position: relative;
-  left: -140px;
-  top: -15px;
   font-weight: 500;
   font-size: medium;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-#encryptKeyButton:hover{
+#encryptCopyBtn:hover{
   background-color: #9f9ff0;
   color: #000000;
 }
 
-#decryptKeyButton{
-  background-image: url('copy.svg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: #ffffff;
-  background-size: 25px;
+#selectFileImg{
   position: relative;
-  top: 2px;
-  right: -4px;
-  width: 35px;
-  height: 33px;
-  padding: 10px 5px;
+  top: -447px;
+  left: 75px;
   border: none;
-  color: #ffffff;
-  outline: 2px solid #ffffff;
-  outline-offset: -2px;
+  width: 298px;
   border-radius: 4px;
-  cursor: pointer;
-}
-
-#decryptKeyButton:hover{
-  background-color: #000000;
-  background-image: url('uncopy.svg');
-  outline: 2px solid #ffffff;
-  outline-offset: -2px;
-}
-
-
-#keyText{
-  resize: both; /* Позволяет изменять размер как по вертикали, так и по горизонтали */
-  overflow: auto; /* Убеждаемся, что полосы прокрутки появляются при необходимости */
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 450px;
-  min-width: 450px;
-  max-width: 450px;
-  height: 30px;
-  max-height: 30px;
-  min-height: 30px;
-  position: relative;
-  top: -0px;
-  right: -130px;
-  cursor: not-allowed;
-}
-
-#changeKey{
-  resize: both; /* Позволяет изменять размер как по вертикали, так и по горизонтали */
-  overflow: auto; /* Убеждаемся, что полосы прокрутки появляются при необходимости */
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 451px;
-  min-width: 451px;
-  max-width: 451px;
-  height: 30px;
-  max-height: 30px;
-  min-height: 30px;
-  position: relative;
-  top: 40px;
-  left: -373px;
-}
-
-#copyKeyButton{
-  background-image: url('copy.svg');
-  background-repeat: no-repeat;
-  background-position: center;
   background-color: #c5c5f7;
-  background-size: 30px;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
   position: relative;
-  right: -140px; 
-  top: -10px;
-  width: 35px;
-  height: 47px;
-  padding: 10px 5px;
+  font-weight: 500;
+  font-size: medium;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#changeBlockText{
+  position: relative;
+  top: -230px;
+  left: 75px;
+  width: 727px;
   border: none;
-  color: #ffffff;
   border-radius: 4px;
-  cursor: pointer;
-}
-
-#copyKeyButton:hover{
-  background-color: #9f9ff0;
-  background-image: url('copy.svg');
-}
-
-#changeButton{
-  position: relative;
-  top: 57px;
-  right: 364px;
-  background-image: url("keyUpdate.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 31px;
   background-color: #c5c5f7;
-  color: #ffffff;
-  outline: 2px solid #c5c5f7;
-  outline-offset: -2px;
-  border-radius: 4px;
+  color: rgb(0, 0, 0);
   cursor: pointer;
-  width: 35px;
-  height: 48px;
+  position: relative;
+  font-weight: 500;
+  font-size: medium;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-#changeButton:hover{
-  background-color: #9f9ff0;
-  background-image: url("keyUpdate.svg");
-  outline: 2px solid #9f9ff0;
-  outline-offset: -2px;
+.keyWork {
+  position: fixed; /* Делаем блок фиксированным */
+  right: -100%;   /* Вызначаем блок за пределы экрана справа */
+  top: 0;
+  width: 300px; /* Задаём ширину блока */
+  transition: right 0.5s; /* Анимация перемещения блока */
 }
 
-.input-error {
-  animation: shake 0.5s ease-in-out;
+.keyWorkVisible {
+  right: 0; /* При добавлении этого класса блок будет перемещаться в видимую область экрана */
 }
 
-#keyContainer{
-  margin-left: 200px;
-  margin-top: 50px;
+.active {
+  transform: translateY(0);
+  opacity: 1;
+  transition: transform 0.5s ease, opacity 0.5s ease;
 }
+
+/* Скрытый со стороны экрана */
+.offscreen-left {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.offscreen-right {
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+.shake-animation {
+  animation: shake 0.5s;
+  animation-timing-function: ease-in-out;
+}
+
 @keyframes shake {
   0%, 100% {
       transform: translateX(0);
@@ -372,36 +368,13 @@ body, html {
   }
 }
 
-
-.shake-animation1 {
-  animation: shake 0.5s linear;
+.keys-container {
+  display: none;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
 }
 
-
-/* Анимация появления блока */
-@keyframes slideIn {
-  from {
-    transform: translateX(200%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-/* Анимация скрытия блока */
-@keyframes slideOut {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-200%);
-  }
-}
-
-.slide-in {
-  animation: slideIn 0.5s forwards; /* Продолжительность появления */
-}
-
-.slide-out {
-  animation: slideOut 0.5s forwards; /* Продолжительность исчезновения */
+.keys-container.show {
+  display: block;
+  max-height: 500px; /* Выберите подходящий размер */
 }
